@@ -13,9 +13,9 @@ public abstract class Animal {
         this.edad = edad;
     }
 
-    public abstract void hacerRuido();
+    public abstract String hacerRuido();
     
-    public abstract void comer();
+    public abstract String comer();
     
     //get and set
     public String getNombre() {

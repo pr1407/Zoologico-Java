@@ -35,7 +35,9 @@ public class JFrameZoologico extends javax.swing.JFrame {
                 lblInt.setText("Edad(anios)");
                 imgAnimal.setIcon(new ImageIcon("src/img/hqdefault.jpg"));
                 lblnombreAnimal.setText("Gallina");
-                desactivarMetodos(false);
+                desactivarMetodos(false);       
+                btnComer.setEnabled(false);
+                btnRuido.setEnabled(false);
                 break;
             case 2:
                 limpiar();
@@ -44,6 +46,8 @@ public class JFrameZoologico extends javax.swing.JFrame {
                 imgAnimal.setIcon(new ImageIcon("src/img/trigre_c.jpg"));
                 lblnombreAnimal.setText("Tigre");
                 desactivarMetodos(false);
+                btnComer.setEnabled(false);
+                btnRuido.setEnabled(false);
                 break;
             case 3:            
                 limpiar();
@@ -52,6 +56,8 @@ public class JFrameZoologico extends javax.swing.JFrame {
                 desactivarMetodos(false);
                 txtDatoString.setEnabled(false);
                 txtDatoInt.setEnabled(false);
+                btnComer.setEnabled(false);
+                btnRuido.setEnabled(false);
                 break;     
         }
     }
@@ -96,19 +102,56 @@ public class JFrameZoologico extends javax.swing.JFrame {
     }
     
     void limpiar(){
+        txtDatoString.setText(null);
+        txtDatoInt.setText(null);
         lblNombre.setText(null);
         lblEdad.setText(null);
         lblPeso.setText(null);
         lblColor.setText(null);
-        txtDatoString.setText(null);
-        txtDatoInt.setText(null);
         lblString.setText(null);
         lblInt.setText(null);
         lblnombreAnimal.setText(null);
-        imgAnimal.setIcon(null);
         lblFichaAnimal.setText(null);
+        lblAccion.setText(null);
+        imgAnimal.setIcon(null);
     }
-
+    
+    void Ruido(){
+        int op = jboxOpciones.getSelectedIndex();
+        switch(op){
+            case 1:
+                Animal gallina = new Gallina(txtDatoString.getText() , Integer.parseInt(txtDatoInt.getText()) );
+                lblAccion.setText(gallina.hacerRuido());
+            break;
+            case 2 : 
+                Animal tigre = new Tigre(txtDatoString.getText() , Integer.parseInt(txtDatoInt.getText()));
+                lblAccion.setText(tigre.hacerRuido());
+                break ;
+            case 3:
+                Animal vicunia = new Vicunia();
+                lblAccion.setText(vicunia.hacerRuido());   
+                break;
+        }
+    }
+    
+    void Comer(){
+        int op = jboxOpciones.getSelectedIndex();
+        switch(op){
+            case 1:
+                Animal gallina = new Gallina(txtDatoString.getText() , Integer.parseInt(txtDatoInt.getText()) );
+                lblAccion.setText(gallina.comer());
+            break;
+            case 2 : 
+                Animal tigre = new Tigre(txtDatoString.getText() , Integer.parseInt(txtDatoInt.getText()));
+                lblAccion.setText(tigre.comer());
+                break ;
+            case 3:
+                Animal vicunia = new Vicunia();
+                lblAccion.setText(vicunia.comer());   
+                break;
+        }
+    }
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -176,12 +219,19 @@ public class JFrameZoologico extends javax.swing.JFrame {
         });
 
         btnComer.setText("Darle de Comer");
+        btnComer.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnComerActionPerformed(evt);
+            }
+        });
 
         txtDatoString.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtDatoStringActionPerformed(evt);
             }
         });
+
+        lblFichaAnimal.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -200,29 +250,26 @@ public class JFrameZoologico extends javax.swing.JFrame {
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(txtDatoString, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(lblTitulo, javax.swing.GroupLayout.PREFERRED_SIZE, 363, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(lblFichaAnimal, javax.swing.GroupLayout.PREFERRED_SIZE, 319, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 81, Short.MAX_VALUE)
+                            .addComponent(lblNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 327, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lblEdad, javax.swing.GroupLayout.PREFERRED_SIZE, 327, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lblPeso, javax.swing.GroupLayout.PREFERRED_SIZE, 327, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lblColor, javax.swing.GroupLayout.PREFERRED_SIZE, 327, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lblAccion, javax.swing.GroupLayout.PREFERRED_SIZE, 388, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lblFichaAnimal, javax.swing.GroupLayout.PREFERRED_SIZE, 430, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(imgLogo, javax.swing.GroupLayout.PREFERRED_SIZE, 198, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(39, 39, 39))
+                .addGap(40, 40, 40))
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(13, 13, 13)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lblNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 327, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lblEdad, javax.swing.GroupLayout.PREFERRED_SIZE, 327, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lblPeso, javax.swing.GroupLayout.PREFERRED_SIZE, 327, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lblColor, javax.swing.GroupLayout.PREFERRED_SIZE, 327, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lblAccion, javax.swing.GroupLayout.PREFERRED_SIZE, 388, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(75, 75, 75)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(62, 62, 62)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(lblString, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(lblnombreAnimal, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(27, 27, 27)
-                                .addComponent(lblInt, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(txtDatoInt, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addGap(30, 30, 30)
+                        .addComponent(lblString, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(lblnombreAnimal, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(27, 27, 27)
+                        .addComponent(lblInt, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtDatoInt, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(73, 73, 73)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(btnMostrarInfoAnimal)
@@ -233,7 +280,8 @@ public class JFrameZoologico extends javax.swing.JFrame {
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                                 .addComponent(btnRuido, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(17, 17, 17)))
-                        .addGap(55, 55, 55))))
+                        .addGap(55, 55, 55)))
+                .addGap(0, 5, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -247,17 +295,12 @@ public class JFrameZoologico extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(imgAnimal, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(62, 62, 62)
+                        .addGap(55, 55, 55)
                         .addComponent(imgLogo)))
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(26, 26, 26)
-                        .addComponent(btnMostrarInfoAnimal, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(btnRuido)
-                        .addGap(33, 33, 33)
-                        .addComponent(btnComer, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addComponent(btnMostrarInfoAnimal, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel1Layout.createSequentialGroup()
@@ -271,20 +314,27 @@ public class JFrameZoologico extends javax.swing.JFrame {
                                 .addGap(22, 22, 22)))
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(txtDatoString, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtDatoInt, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(14, 14, 14)
-                        .addComponent(lblFichaAnimal, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
+                            .addComponent(txtDatoInt, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(btnRuido)
+                    .addComponent(lblFichaAnimal, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(15, 15, 15)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(btnComer, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(lblNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(lblEdad, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(lblPeso, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(lblColor, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(lblEdad, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(lblPeso, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(lblColor, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(lblAccion, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(604, 604, 604))))
+                        .addGap(601, 601, 601))))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -312,7 +362,7 @@ public class JFrameZoologico extends javax.swing.JFrame {
     }//GEN-LAST:event_txtDatoStringActionPerformed
 
     private void btnRuidoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRuidoActionPerformed
-        
+        Ruido();
     }//GEN-LAST:event_btnRuidoActionPerformed
 
     private void btnMostrarInfoAnimalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMostrarInfoAnimalActionPerformed
@@ -328,6 +378,8 @@ public class JFrameZoologico extends javax.swing.JFrame {
                 FichaTecnicaVicunia();
                 break;
         }
+        btnComer.setEnabled(true);
+        btnRuido.setEnabled(true);
     }//GEN-LAST:event_btnMostrarInfoAnimalActionPerformed
 
     private void jboxOpcionesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jboxOpcionesActionPerformed
@@ -336,7 +388,12 @@ public class JFrameZoologico extends javax.swing.JFrame {
 
     private void jboxOpcionesItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jboxOpcionesItemStateChanged
         elegirAnimal();
+        
     }//GEN-LAST:event_jboxOpcionesItemStateChanged
+
+    private void btnComerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnComerActionPerformed
+        Comer();
+    }//GEN-LAST:event_btnComerActionPerformed
 
     /**
      * @param args the command line arguments

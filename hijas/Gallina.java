@@ -1,5 +1,4 @@
 package hijas;
- 
 import padre.Animal;
 
 public class Gallina extends Animal{
@@ -9,12 +8,12 @@ public class Gallina extends Animal{
     }
     
     @Override
-    public void hacerRuido(){
-        System.out.printf("La gallina "+ nombre + " esta haciendo ruido.\n");
+    public String hacerRuido(){
+        return "La gallina "+ nombre + " esta haciendo ruido." ;
     }
     
     @Override
-    public void comer(){
-        System.out.printf("La gallina "+ nombre + " esta comiendo.\n");
+    public String comer(){
+        return "La gallina "+ nombre + " esta comiendo.";
     }
 }
