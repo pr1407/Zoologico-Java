@@ -9,7 +9,7 @@ public class Vicunia extends Animal {
     
     @Override
     public void hacerRuido(){
-        String mensaje = "La vicunia " + nombre +" hace ruido.\n"; 
+        System.out.printf("La vicunia " + nombre +" esta haciendo ruido.\n");; 
     }
 
     @Override

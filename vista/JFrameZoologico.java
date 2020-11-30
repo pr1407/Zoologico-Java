@@ -58,6 +58,7 @@ public class JFrameZoologico extends javax.swing.JFrame {
     
     void FichaTecnicaVicunia(){
         Animal vicunia = new Vicunia();
+        lblFichaAnimal.setText("Informacion de la Vicunia");
         lblNombre.setText("Nombre: "+ vicunia.getNombre());
         lblEdad.setText("Edad: " + vicunia.getEdad()+" anios");
         lblPeso.setText("Peso: " + vicunia.getPeso() + " kg");
@@ -68,6 +69,7 @@ public class JFrameZoologico extends javax.swing.JFrame {
         String nuevonombre = txtDatoString.getText();
         int nuevaedad = Integer.parseInt(txtDatoInt.getText());
         Animal tigre = new Tigre(nuevonombre, nuevaedad);
+        lblFichaAnimal.setText("Informacion del Tigre");
         lblNombre.setText("Nombre: "+ tigre.getNombre());
         lblEdad.setText("Edad: " + tigre.getEdad()+" anios");
         lblPeso.setText("Peso: " + tigre.getPeso() + " kg");
@@ -78,6 +80,7 @@ public class JFrameZoologico extends javax.swing.JFrame {
         String nuevocolor = txtDatoString.getText();
         int nuevaedad = Integer.parseInt(txtDatoInt.getText());
         Animal gallina = new Gallina(nuevocolor, nuevaedad);
+        lblFichaAnimal.setText("Informacion de la Gallina");
         lblNombre.setText("Nombre: "+ gallina.getNombre());
         lblEdad.setText("Edad: " + gallina.getEdad()+" anios");
         lblPeso.setText("Peso: " + gallina.getPeso() + " kg");
@@ -103,6 +106,7 @@ public class JFrameZoologico extends javax.swing.JFrame {
         lblInt.setText(null);
         lblnombreAnimal.setText(null);
         imgAnimal.setIcon(null);
+        lblFichaAnimal.setText(null);
     }
 
     /**
@@ -132,6 +136,7 @@ public class JFrameZoologico extends javax.swing.JFrame {
         txtDatoInt = new javax.swing.JTextField();
         lblString = new javax.swing.JLabel();
         lblInt = new javax.swing.JLabel();
+        lblFichaAnimal = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -194,7 +199,8 @@ public class JFrameZoologico extends javax.swing.JFrame {
                         .addGap(21, 21, 21)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(txtDatoString, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(lblTitulo, javax.swing.GroupLayout.PREFERRED_SIZE, 363, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addComponent(lblTitulo, javax.swing.GroupLayout.PREFERRED_SIZE, 363, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lblFichaAnimal, javax.swing.GroupLayout.PREFERRED_SIZE, 319, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 81, Short.MAX_VALUE)
                 .addComponent(imgLogo, javax.swing.GroupLayout.PREFERRED_SIZE, 198, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(39, 39, 39))
@@ -262,11 +268,13 @@ public class JFrameZoologico extends javax.swing.JFrame {
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(lblnombreAnimal, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(28, 28, 28)))
+                                .addGap(22, 22, 22)))
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(txtDatoString, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(txtDatoInt, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(34, 34, 34)
+                        .addGap(14, 14, 14)
+                        .addComponent(lblFichaAnimal, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
                         .addComponent(lblNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(lblEdad, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -376,6 +384,7 @@ public class JFrameZoologico extends javax.swing.JFrame {
     private javax.swing.JLabel lblAccion;
     private javax.swing.JLabel lblColor;
     private javax.swing.JLabel lblEdad;
+    private javax.swing.JLabel lblFichaAnimal;
     private javax.swing.JLabel lblInt;
     private javax.swing.JLabel lblNombre;
     private javax.swing.JLabel lblPeso;

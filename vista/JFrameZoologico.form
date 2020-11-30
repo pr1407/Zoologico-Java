@@ -68,6 +68,7 @@
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Component id="txtDatoString" min="-2" pref="153" max="-2" attributes="0"/>
                               <Component id="lblTitulo" min="-2" pref="363" max="-2" attributes="0"/>
+                              <Component id="lblFichaAnimal" alignment="0" min="-2" pref="319" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                   </Group>
@@ -156,14 +157,16 @@
                               <Group type="102" alignment="1" attributes="0">
                                   <EmptySpace max="-2" attributes="0"/>
                                   <Component id="lblnombreAnimal" min="-2" pref="32" max="-2" attributes="0"/>
-                                  <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
+                                  <EmptySpace min="-2" pref="22" max="-2" attributes="0"/>
                               </Group>
                           </Group>
                           <Group type="103" groupAlignment="3" attributes="0">
                               <Component id="txtDatoString" alignment="3" min="-2" pref="35" max="-2" attributes="0"/>
                               <Component id="txtDatoInt" alignment="3" min="-2" pref="36" max="-2" attributes="0"/>
                           </Group>
-                          <EmptySpace min="-2" pref="34" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="14" max="-2" attributes="0"/>
+                          <Component id="lblFichaAnimal" min="-2" pref="43" max="-2" attributes="0"/>
+                          <EmptySpace type="separate" max="-2" attributes="0"/>
                           <Component id="lblNombre" min="-2" pref="27" max="-2" attributes="0"/>
                           <EmptySpace type="unrelated" max="-2" attributes="0"/>
                           <Component id="lblEdad" min="-2" pref="26" max="-2" attributes="0"/>
@@ -266,6 +269,8 @@
         <Component class="javax.swing.JLabel" name="lblString">
         </Component>
         <Component class="javax.swing.JLabel" name="lblInt">
+        </Component>
+        <Component class="javax.swing.JLabel" name="lblFichaAnimal">
         </Component>
       </SubComponents>
     </Container>
